@@ -29,9 +29,16 @@ galleryEl.addEventListener("click", (event) => {
     {
       onShow: (instance) => {
         instance.element().querySelector("a").onclick = instance.close;
-      },
+      }
     }
   );
-
   instance.show();
+  document.addEventListener("keydown", event => {
+    if (event.code === 'Escape') {
+      instance.close();
+    }
+  });
 });
+
+
+
