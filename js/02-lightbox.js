@@ -16,19 +16,16 @@ galleryEl.insertAdjacentHTML("afterbegin", galleryTabsContainer.join(""));
 
 console.log(galleryEl);
 
-galleryEl.addEventListener("click", (event) => {
+
 
 let lightbox = new SimpleLightbox('.gallery a', {
     showCounter: true,
     captions: true,
-    animationSpeed: 250,
     captionsData: 'alt',
     captionDelay: 250,
 });
 
-event.preventDefault();
-console.log(lightbox);
-     });
+
 
 
   
