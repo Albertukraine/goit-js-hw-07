@@ -12,14 +12,28 @@ const galleryTabsContainer = galleryItems.map((image) => {
 <img class = "gallery__image" alt = "${image.description}" src = "${image.preview}"></a>`;
 });
 
+galleryEl.insertAdjacentHTML("afterbegin", galleryTabsContainer.join(""));
+
+console.log(galleryEl);
+
 galleryEl.addEventListener("click", (event) => {
 
-    let lightbox = new SimpleLightbox('.gallery a');
-      event.preventDefault();
-    
-    });
+let lightbox = new SimpleLightbox('.gallery a', {
+    showCounter: true,
+    captions: true,
+    animationSpeed: 250,
+    captionsData: 'alt',
+    captionDelay: 250,
+});
 
-galleryEl.insertAdjacentHTML("afterbegin", galleryTabsContainer.join(""));
+event.preventDefault();
+console.log(lightbox);
+     });
+
+
+  
+
+
 
 
 
