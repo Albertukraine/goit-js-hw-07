@@ -32,12 +32,15 @@ if (event.target.classList.value !== "gallery__image") {return};
     }
   );
   instance.show();
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", onEscapeKeyPress);
+  function onEscapeKeyPress (event) {
     if (event.code === "Escape") {
       instance.close();
-      console.log("escape")
-    }
-  });
+      console.log("escape");
+      document.removeEventListener("keydown", onEscapeKeyPress);
+    };
+  };
+
   
 });
 
