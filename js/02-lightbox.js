@@ -8,8 +8,8 @@ console.log(galleryItems);
 const galleryEl = document.querySelector(".gallery");
 
 const galleryTabsContainer = galleryItems.map((image) => {
-  return ` <a class = "gallery__item" href = "${image.original}">
-<img class = "gallery__image" alt = "${image.description}" src = "${image.preview}"></a>`;
+  return ` <li><a class = "gallery__item" href = "${image.original}">
+<img class = "gallery__image" alt = "${image.description}" src = "${image.preview}"></a></li>`;
 });
 
 galleryEl.insertAdjacentHTML("afterbegin", galleryTabsContainer.join(""));
