@@ -14,18 +14,17 @@ galleryEl.insertAdjacentHTML("afterbegin", galleryTabsContainer.join(""));
 
 galleryEl.addEventListener("click", (event) => {
   event.preventDefault();
-  // console.log('target - здесь событие',event.target);
-  // console.log('currentTarget - здесь слушатель',event.currentTarget);
+   console.log('target - здесь событие',event.target);
+   console.log('currentTarget - здесь слушатель',event.currentTarget);
+  // console.log( event.target.classList.value === "gallery__image");
   // console.log(event.target.dataset.source);
   const currentLink = event.target.dataset.source;
-
+if (event.target.classList.value !== "gallery__image") {return};
   const instance = basicLightbox.create(
-    `
-    <div class="modal">
-        <img src = "${currentLink}">
-        <a>Close</a>
-    </div>
-`,
+    `<div class="modal">
+    <img src = "${currentLink}">
+    <a>Close</a>
+    </div>`,
     {
       onShow: (instance) => {
         instance.element().querySelector("a").onclick = instance.close;
@@ -36,6 +35,15 @@ galleryEl.addEventListener("click", (event) => {
   document.addEventListener("keydown", (event) => {
     if (event.code === "Escape") {
       instance.close();
+      console.log("escape")
     }
   });
+  
 });
+
+// document.removeEventListener("keydown", (event) => {
+//   if (event.code === "Escape") {
+//     instance.close();
+//     console.log("escape")
+//   }
+// });
